@@ -1,22 +1,30 @@
-"use client"
-
-import { useState } from "react"
-import  Navbar  from "@/components/home/navbar"
-import  Footer  from "@/components/home/footer"
-import { FloatingContact } from "@/components/floating-contact"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Check, ArrowLeft } from "lucide-react"
-import Link from "next/link"
+"use client";
+ import { useSearchParams } from "next/navigation"
+import { useEffect } from "react"
+import { useState } from "react";
+import  Navbar  from "@/components/home/navbar";
+import  Footer  from "@/components/home/footer";
+import { FloatingContact } from "@/components/floating-contact";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Check, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 const products = [
   {
     id: "breeder",
     title: "أعلاف الأمهات",
     titleEn: "Breeder Feed",
-    description: "مصممة لدعم الخصوبة وتحسين صحة القطيع، بما يضمن إنتاج كتاكيت قوية وعالية الجودة.",
+    description:
+      "مصممة لدعم الخصوبة وتحسين صحة القطيع، بما يضمن إنتاج كتاكيت قوية وعالية الجودة.",
     fullDescription:
       "أعلاف الأمهات من مصنع التكامل مصممة خصيصاً لتلبية الاحتياجات الغذائية الفريدة لقطعان التربية. توفر تركيبتنا المتوازنة جميع العناصر الغذائية الضرورية لدعم الخصوبة العالية وإنتاج بيض فقس ممتاز.",
     image: "/breeder-chicken-feed-pellets.jpg",
@@ -34,7 +42,8 @@ const products = [
     id: "layer",
     title: "أعلاف البياض",
     titleEn: "Layer Feed",
-    description: "تدعم زيادة إنتاج البيض وتحافظ على جودته وقيمته الغذائية العالية.",
+    description:
+      "تدعم زيادة إنتاج البيض وتحافظ على جودته وقيمته الغذائية العالية.",
     fullDescription:
       "أعلاف البياض مصممة لتحقيق أقصى إنتاجية من البيض مع الحفاظ على جودة القشرة والمحتوى الغذائي. تركيبتنا توفر الكالسيوم والفوسفور بنسب مثالية لضمان قشرة قوية وبيض عالي الجودة.",
     image: "/layer-chicken-feed-with-eggs.jpg",
@@ -52,7 +61,8 @@ const products = [
     id: "broiler",
     title: "أعلاف اللاحم",
     titleEn: "Broiler Feed",
-    description: "تركيبات غنية ومتوازنة تساهم في تحقيق نمو سريع ووزن مثالي خلال فترة التسمين.",
+    description:
+      "تركيبات غنية ومتوازنة تساهم في تحقيق نمو سريع ووزن مثالي خلال فترة التسمين.",
     fullDescription:
       "أعلاف اللاحم من مصنع التكامل مصممة لتحقيق أسرع معدلات نمو مع الحفاظ على صحة الطيور. نوفر تركيبات متخصصة لكل مرحلة من مراحل التربية: البادئ، النامي، والناهي.",
     image: "/broiler-chicken-feed-grains.jpg",
@@ -70,7 +80,8 @@ const products = [
     id: "cattle",
     title: "أعلاف الماشية",
     titleEn: "Cattle Feed",
-    description: "توفر تغذية متوازنة تضمن صحة أفضل وإنتاجية مستدامة في اللحوم أو الألبان.",
+    description:
+      "توفر تغذية متوازنة تضمن صحة أفضل وإنتاجية مستدامة في اللحوم أو الألبان.",
     fullDescription:
       "أعلاف الماشية من مصنع التكامل مصممة لتلبية الاحتياجات الغذائية المتنوعة للأبقار والأغنام والماعز. سواء كانت للحليب أو اللحم، توفر تركيباتنا التوازن المثالي للطاقة والبروتين.",
     image: "/cattle-livestock-feed-pellets.jpg",
@@ -84,10 +95,27 @@ const products = [
     ],
     usage: "الأبقار والأغنام والماعز للحليب واللحم",
   },
-]
+];
 
 export default function ProductsPage() {
-  const [activeTab, setActiveTab] = useState("breeder")
+
+  const searchParams = useSearchParams()
+const initialTab = searchParams.get("tab") || "breeder"
+
+const [activeTab, setActiveTab] = useState(initialTab)
+
+useEffect(() => {
+  const paramTab = searchParams.get("tab")
+  if (paramTab) {
+    setActiveTab(paramTab)
+
+    // بعد تغيير التاب — ننزل للسكشن
+    setTimeout(() => {
+      window.scrollTo({ top: 300, behavior: "smooth" })
+    }, 100)
+  }
+}, [searchParams])
+
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -98,13 +126,18 @@ export default function ProductsPage() {
           <div className="absolute inset-0 opacity-10">
             <div
               className="h-full w-full bg-cover bg-center"
-              style={{ backgroundImage: `url('/modern-feed-production-line-machinery.jpg')` }}
+              style={{
+                backgroundImage: `url('/modern-feed-production-line-machinery.jpg')`,
+              }}
             />
           </div>
           <div className="container relative mx-auto px-4 text-center lg:px-8">
-            <h1 className="mb-4 text-4xl font-bold text-primary-foreground lg:text-5xl">منتجاتنا</h1>
+            <h1 className="mb-4 text-4xl font-bold text-primary-foreground lg:text-5xl">
+              منتجاتنا
+            </h1>
             <p className="mx-auto max-w-2xl text-lg text-primary-foreground/90">
-              حلول غذائية متخصصة تلبي مختلف احتياجات المربين والمزارع بأعلى معايير الجودة العالمية
+              حلول غذائية متخصصة تلبي مختلف احتياجات المربين والمزارع بأعلى
+              معايير الجودة العالمية
             </p>
           </div>
         </section>
@@ -112,17 +145,30 @@ export default function ProductsPage() {
         {/* Products Section */}
         <section className="py-16 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
-            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full" dir="rtl">
+            <Tabs
+              value={activeTab}
+              onValueChange={setActiveTab}
+              className="w-full"
+              dir="rtl"
+            >
               <TabsList className="mb-8 grid w-full grid-cols-2 lg:grid-cols-4">
                 {products.map((product) => (
-                  <TabsTrigger key={product.id} value={product.id} className="text-sm lg:text-base">
+                  <TabsTrigger
+                    key={product.id}
+                    value={product.id}
+                    className="text-sm lg:text-base"
+                  >
                     {product.title}
                   </TabsTrigger>
                 ))}
               </TabsList>
 
               {products.map((product) => (
-                <TabsContent key={product.id} value={product.id} id={product.id}>
+                <TabsContent
+                  key={product.id}
+                  value={product.id}
+                  id={product.id}
+                >
                   <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
                     {/* Product Image */}
                     <div className="relative">
@@ -141,17 +187,28 @@ export default function ProductsPage() {
                     {/* Product Details */}
                     <div>
                       <div className="mb-2">
-                        <span className="text-sm text-muted-foreground">{product.titleEn}</span>
+                        <span className="text-sm text-muted-foreground">
+                          {product.titleEn}
+                        </span>
                       </div>
-                      <h2 className="mb-4 text-3xl font-bold">{product.title}</h2>
-                      <p className="mb-6 text-muted-foreground leading-relaxed">{product.fullDescription}</p>
+                      <h2 className="mb-4 text-3xl font-bold">
+                        {product.title}
+                      </h2>
+                      <p className="mb-6 text-muted-foreground leading-relaxed">
+                        {product.fullDescription}
+                      </p>
 
                       {/* Benefits */}
                       <div className="mb-6">
-                        <h3 className="mb-3 font-semibold">المميزات والفوائد:</h3>
+                        <h3 className="mb-3 font-semibold">
+                          المميزات والفوائد:
+                        </h3>
                         <ul className="space-y-2">
                           {product.benefits.map((benefit, index) => (
-                            <li key={index} className="flex items-center gap-2 text-muted-foreground">
+                            <li
+                              key={index}
+                              className="flex items-center gap-2 text-muted-foreground"
+                            >
                               <Check className="h-5 w-5 shrink-0 text-primary" />
                               <span>{benefit}</span>
                             </li>
@@ -161,7 +218,9 @@ export default function ProductsPage() {
 
                       {/* Usage */}
                       <div className="mb-8 rounded-lg bg-muted/50 p-4">
-                        <h3 className="mb-2 font-semibold">الاستخدام المستهدف:</h3>
+                        <h3 className="mb-2 font-semibold">
+                          الاستخدام المستهدف:
+                        </h3>
                         <p className="text-muted-foreground">{product.usage}</p>
                       </div>
 
@@ -195,8 +254,8 @@ export default function ProductsPage() {
                   key={product.id}
                   className="group cursor-pointer overflow-hidden transition-all hover:shadow-xl"
                   onClick={() => {
-                    setActiveTab(product.id)
-                    window.scrollTo({ top: 400, behavior: "smooth" })
+                    setActiveTab(product.id);
+                    window.scrollTo({ top: 400, behavior: "smooth" });
                   }}
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
@@ -211,10 +270,14 @@ export default function ProductsPage() {
                   </div>
                   <CardHeader>
                     <CardTitle className="text-xl">{product.title}</CardTitle>
-                    <CardDescription className="text-xs">{product.titleEn}</CardDescription>
+                    <CardDescription className="text-xs">
+                      {product.titleEn}
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{product.description}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {product.description}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -227,7 +290,8 @@ export default function ProductsPage() {
           <div className="container mx-auto px-4 text-center lg:px-8">
             <h2 className="mb-4 text-3xl font-bold">هل تحتاج إلى استشارة؟</h2>
             <p className="mx-auto mb-8 max-w-2xl text-muted-foreground">
-              فريقنا المتخصص جاهز لمساعدتك في اختيار المنتج الأنسب لاحتياجاتك وتقديم الدعم الفني اللازم
+              فريقنا المتخصص جاهز لمساعدتك في اختيار المنتج الأنسب لاحتياجاتك
+              وتقديم الدعم الفني اللازم
             </p>
             <Button asChild size="lg">
               <Link href="/contact">
@@ -241,5 +305,5 @@ export default function ProductsPage() {
       <Footer />
       <FloatingContact />
     </div>
-  )
+  );
 }
