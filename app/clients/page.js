@@ -51,16 +51,16 @@ const clients = [
 
 const partners = [
   {
-    category: "شركة اوراسكوم  ",
-    url: "/unnamed.png",
+    category: "صندوق التنمية الصناعية السعودي  ",
+    url: "/saudibox.png",
   },
   {
-    category: "شركة أبناء ياشيخ  ",
-    url: "",
+    category: "وزارة البيئة والمياه والزراعة",
+    url: "env.png",
   },
   {
-    category: "شركة التنمية للدوجن  ",
-    url: "/tn.jpeg",
+    category: "وزراة التجارة ",
+    url: "/commercepng.png",
   }
 ];
 
@@ -72,7 +72,7 @@ export const metadata = {
 
 export default function ClientsPage() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col dark:bg-[#64312C]">
       <Navbar />
       <main className="flex-1">
         {/* Hero Section */}
@@ -118,7 +118,7 @@ export default function ClientsPage() {
                   className="group overflow-hidden transition-all hover:shadow-lg"
                 >
                   <CardContent className="p-6">
-                    <div className="mb-4 flex h-20 items-center justify-center rounded-lg bg-muted/50">
+                    <div className="mb-4 flex h-20 items-center dark:bg-white justify-center rounded-lg bg-muted/50">
                       <img
                         src={client.logo || "/placeholder.svg"}
                         alt={client.name}
@@ -184,7 +184,7 @@ export default function ClientsPage() {
                 شبكة شركاء متميزة
               </h2>
               <p className="mx-auto max-w-2xl text-muted-foreground">
-                نتعاون مع أفضل الموردين والشركاء لضمان أعلى جودة في منتجاتنا
+               نفتخر بشراكات استراتيجية تدعم الابتكار والجودة وتعزز قيمنا في تقديم منتجات موثوقة ومتميزة.
               </p>
             </div>
 
@@ -192,7 +192,7 @@ export default function ClientsPage() {
               {partners.map((partner, index) => (
                 <Card key={index}>
                   <CardContent className="p-6">
-                    <div className="mb-4 flex h-20 items-center justify-center rounded-lg bg-muted/50">
+                    <div className="mb-4 flex h-20 items-center dark:bg-white justify-center rounded-lg bg-muted/50">
                       <img
                         src={partner.url || "/placeholder.svg"}
                         alt={partner.category}

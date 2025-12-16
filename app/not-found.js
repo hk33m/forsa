@@ -6,7 +6,7 @@ import { Home, ArrowRight, Phone, Search } from "lucide-react"
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col dark:bg-[#64312C]">
       <Navbar />
       <main className="flex flex-1 items-center justify-center">
         <div className="container mx-auto px-4 py-20 lg:px-8">
@@ -53,7 +53,6 @@ export default function NotFound() {
                   { name: "منتجاتنا", href: "/products" },
                   { name: "من نحن", href: "/about" },
                   { name: "الجودة", href: "/quality" },
-                  { name: "الأخبار", href: "/news" },
                 ].map((link) => (
                   <Link
                     key={link.href}

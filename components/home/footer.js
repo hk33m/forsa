@@ -33,7 +33,7 @@ export default function Footer() {
               <div>
                 <p className="font-bold text-taka">مصنع التكامل للأعلاف</p>
                 <p className="text-xs text-muted-foreground">
-                  Al-Takamol Factory
+                  Al-Takamul Factory
                 </p>
               </div>
             </div>

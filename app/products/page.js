@@ -119,7 +119,7 @@ useEffect(() => {
 
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col dark:bg-[#64312C]">
       <Navbar />
       <main className="flex-1">
         {/* Hero Section */}

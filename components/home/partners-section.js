@@ -2,7 +2,9 @@ const partners = [
   { name: "شركة  التنمية", logo: "/tn.jpeg" },
   { name: "شركة بلدي ", logo: "/balade.png" },
   { name: "شركة مزارعنا  ", logo: "/mazarena.png" },
-  { name: "شركة اوراسكوم ", logo: "/unnamed.png" },
+  { name: "الصندوق الصناعي  ", logo: "/saudibox.png" },
+  { name: "وزارة البيئة والزراعة  ", logo: "/env.png" },
+  { name: "وزارة التجارة  ", logo: "/commercepng.png" },
  
 ]
 
@@ -20,7 +22,7 @@ export function PartnersSection() {
           {partners.map((partner, index) => (
             <div
               key={index}
-              className="flex items-center justify-center rounded-lg bg-card p-6 grayscale transition-all hover:grayscale-0"
+              className="flex items-center justify-center rounded-lg dark:bg-white p-6  transition-all hover:grayscale-0"
             >
               <img src={partner.logo || "/placeholder.svg"} alt={partner.name} className="h-12 w-auto object-contain" />
             </div>

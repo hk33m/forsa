@@ -1,21 +1,26 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Menu, Moon, Sun, Phone } from "lucide-react"
-import { useTheme } from "next-themes"
-import { Button } from "@/components/ui/button"
+import * as React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, Moon, Sun, Phone } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
   SheetHeader,
-  SheetTitle
-} from "@/components/ui/sheet"
+  SheetTitle,
+} from "@/components/ui/sheet";
 
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { cn } from "@/lib/utils"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
 
 const navigation = [
   { name: "الرئيسية", href: "/" },
@@ -26,12 +31,12 @@ const navigation = [
   { name: "عملاؤنا", href: "/clients" },
   { name: "الاستدامة", href: "/sustainability" },
   { name: "تواصل معنا", href: "/contact" },
-]
+];
 
 export default function Navbar() {
-  const pathname = usePathname()
-  const { setTheme, theme } = useTheme()
-  const [isOpen, setIsOpen] = React.useState(false)
+  const pathname = usePathname();
+  const { setTheme, theme } = useTheme();
+  const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -39,11 +44,13 @@ export default function Navbar() {
         {/* Logo - Right side for RTL */}
         <Link href="/" className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg border">
-            <span className="text-lg font-bold "><img src="/512-01.png"></img></span>
+            <span className="text-lg font-bold ">
+              <img src="/512-01.png"></img>
+            </span>
           </div>
           <div className=" sm:block">
             <p className="text-sm font-bold text-taka">مصنع التكامل للأعلاف</p>
-            <p className="text-xs text-muted-foreground">Al-Takamol Factory</p>
+            <p className="text-xs text-muted-foreground">Al-Takamul Factory</p>
           </div>
         </Link>
 
@@ -55,7 +62,9 @@ export default function Navbar() {
               href={item.href}
               className={cn(
                 "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground",
-                pathname === item.href ? "bg-muted text-foreground" : "text-muted-foreground",
+                pathname === item.href
+                  ? "bg-muted text-foreground"
+                  : "text-muted-foreground"
               )}
             >
               {item.name}
@@ -107,9 +116,9 @@ export default function Navbar() {
             </SheetTrigger>
             <SheetContent side="right" className="w-80">
               <div className="flex flex-col gap-4 pt-8">
-              <SheetHeader>
-  <SheetTitle className="sr-only">Menu</SheetTitle>
-</SheetHeader>
+                <SheetHeader>
+                  <SheetTitle className="sr-only">Menu</SheetTitle>
+                </SheetHeader>
 
                 {navigation.map((item) => (
                   <Link
@@ -118,18 +127,19 @@ export default function Navbar() {
                     onClick={() => setIsOpen(false)}
                     className={cn(
                       "rounded-md px-4 py-3 text-base font-medium transition-colors hover:bg-muted",
-                      pathname === item.href ? "bg-muted text-foreground" : "text-muted-foreground",
+                      pathname === item.href
+                        ? "bg-muted text-foreground"
+                        : "text-muted-foreground"
                     )}
                   >
                     {item.name}
                   </Link>
                 ))}
-                
               </div>
             </SheetContent>
           </Sheet>
         </div>
       </nav>
     </header>
-  )
+  );
 }

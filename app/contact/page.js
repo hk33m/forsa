@@ -158,7 +158,7 @@ export default function ContactPage() {
 
   
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col dark:bg-[#64312C]">
       <Navbar />
       <main className="flex-1">
         <section className="relative overflow-hidden bg-gradient-to-bl from-primary via-taka to-primary/90 py-24 lg:py-32">
@@ -441,7 +441,7 @@ export default function ContactPage() {
 
             <div className="overflow-hidden rounded-3xl shadow-2xl">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.0!2d42.7!3d18.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDE4JzAwLjAiTiA0MsKwNDInMDAuMCJF!5e0!3m2!1sen!2ssa!4v1600000000000!5m2!1sen!2ssa"
+                src="https://www.google.com/maps?q=18.7060606,42.8956374&z=15&output=embed"
                 width="100%"
                 height="500"
                 style={{ border: 0 }}
