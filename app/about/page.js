@@ -211,7 +211,7 @@ export default function AboutPage() {
               {values.map((value, index) => (
                 <div
                   key={index}
-                  className="group rounded-xl border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-lg"
+                  className="group rounded-xl border bg-card dark:bg-cardark p-6 transition-all hover:border-primary/50 hover:shadow-lg"
                 >
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                     <value.icon className="h-6 w-6" />

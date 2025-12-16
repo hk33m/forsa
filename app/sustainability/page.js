@@ -151,7 +151,7 @@ export default function SustainabilityPage() {
               {sustainabilityPillars.map((pillar, index) => (
                 <Card
                   key={index}
-                  className="group text-center transition-all hover:shadow-lg"
+                  className="group text-center transition-all hover:shadow-lg dark:bg-cardark"
                 >
                   <CardHeader>
                     <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors group-hover:bg-takar group-hover:text-primary-foreground">
@@ -187,7 +187,7 @@ export default function SustainabilityPage() {
 
             <div className="mx-auto max-w-3xl space-y-6">
               {initiatives.map((initiative, index) => (
-                <Card key={index}>
+                <Card key={index} className={"dark:bg-cardark"}>
                   <CardContent className="p-6">
                     <div className="mb-2 flex items-center justify-between">
                       <h3 className="font-semibold text-taka">{initiative.title}</h3>
@@ -230,7 +230,7 @@ export default function SustainabilityPage() {
               {socialResponsibility.map((item, index) => (
                 <Card
                   key={index}
-                  className="group transition-all hover:shadow-lg"
+                  className="group transition-all hover:shadow-lg dark:bg-cardark"
                 >
                   <CardContent className="p-6 text-center">
                     <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-taka">

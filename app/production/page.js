@@ -156,7 +156,7 @@ export default function ProductionPage() {
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {capabilities.map((cap, index) => (
-                <Card key={index} className="text-center">
+                <Card key={index} className="text-center dark:bg-cardark">
                   <CardHeader>
                     <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-takarr text-takar">
                       <cap.icon className="h-7 w-7" />
@@ -214,7 +214,7 @@ export default function ProductionPage() {
                         index % 2 === 0 ? "lg:text-left" : "lg:text-right"
                       }`}
                     >
-                      <Card className="relative">
+                      <Card className="relative dark:bg-cardark">
                         <CardContent className="p-6">
                           <div className="mb-3 flex items-center gap-3">
                             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-takar text-primary-foreground">
@@ -261,7 +261,7 @@ export default function ProductionPage() {
               {technologies.map((tech, index) => (
                 <Card
                   key={index}
-                  className="group transition-all hover:shadow-lg"
+                  className="group transition-all hover:shadow-lg dark:bg-cardark"
                 >
                   <CardHeader>
                     <CardTitle className="text-lg text-taka">{tech.title}</CardTitle>
@@ -295,7 +295,7 @@ export default function ProductionPage() {
               </div>
               <div className="aspect-[4/3] overflow-hidden rounded-2xl md:col-span-2 lg:col-span-1">
                 <img
-                  src="/quality-control-laboratory-feed-testing.jpg"
+                  src="/quality.jpg"
                   alt="مختبر الجودة"
                   className="h-full w-full object-cover"
                 />

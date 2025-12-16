@@ -120,7 +120,7 @@ export default function QualityPage() {
             <div
               className="h-full w-full bg-cover bg-center"
               style={{
-                backgroundImage: `url('/quality-control-laboratory-feed-testing.jpg')`,
+                backgroundImage: `url('/quality.jpg')`,
               }}
             />
           </div>
@@ -153,7 +153,7 @@ export default function QualityPage() {
               {qualityPillars.map((pillar, index) => (
                 <Card
                   key={index}
-                  className="group text-center transition-all hover:shadow-lg"
+                  className="group text-center transition-all hover:shadow-lg dark:bg-cardark"
                 >
                   <CardHeader>
                     <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-takarr text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
@@ -189,7 +189,7 @@ export default function QualityPage() {
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {inspectionSteps.map((step, index) => (
-                <Card key={index} className="relative overflow-hidden">
+                <Card key={index} className="relative overflow-hidden dark:bg-cardark">
                   <div className="absolute -left-4 -top-4 flex h-16 w-16 items-center justify-center rounded-full bg-takarr text-3xl font-bold text-primary/30">
                     {index + 1}
                   </div>
@@ -239,7 +239,7 @@ export default function QualityPage() {
                   {certifications.map((cert, index) => (
                     <div
                       key={index}
-                      className="flex items-center justify-between rounded-lg border bg-card p-4"
+                      className="flex items-center justify-between rounded-lg border bg-card p-4 dark:bg-cardark"
                     >
                       <div className="flex items-center gap-3">
                         <Award className="h-5 w-5 text-primary" />
@@ -256,7 +256,7 @@ export default function QualityPage() {
               <div className="relative">
                 <div className="aspect-square overflow-hidden rounded-2xl">
                   <img
-                    src="/quality-control-laboratory-feed-testing.jpg"
+                    src="/quality.jpg"
                     alt="مختبر الجودة"
                     className="h-full w-full object-cover"
                   />
@@ -272,8 +272,8 @@ export default function QualityPage() {
 
         {/* FAQ Section */}
         <section className="bg-muted/30 py-16 lg:py-24">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="mb-12 text-center">
+          <div className="container mx-auto px-4 lg:px-8 ">
+            <div className="mb-12 text-center ">
               <span className="mb-4 inline-block text-sm font-semibold text-takar">
                 الأسئلة الشائعة
               </span>
@@ -283,12 +283,12 @@ export default function QualityPage() {
             </div>
 
             <div className="mx-auto max-w-3xl">
-              <Accordion type="single" collapsible className="space-y-4">
+              <Accordion type="single" collapsible className="space-y-4 ">
                 {faqs.map((faq, index) => (
                   <AccordionItem
                     key={index}
                     value={`item-${index}`}
-                    className="rounded-lg border bg-card px-6"
+                    className="rounded-lg border bg-card px-6 dark:bg-cardark"
                   >
                     <AccordionTrigger className="text-right hover:no-underline">
                       {faq.question}

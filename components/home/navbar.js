@@ -43,7 +43,7 @@ export default function Navbar() {
       <nav className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
         {/* Logo - Right side for RTL */}
         <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg border">
+          <div className="flex h-10 w-10 items-center bg-white justify-center rounded-lg border">
             <span className="text-lg font-bold ">
               <img src="/512-01.png"></img>
             </span>

@@ -115,7 +115,7 @@ export default function ClientsPage() {
               {clients.map((client, index) => (
                 <Card
                   key={index}
-                  className="group overflow-hidden transition-all hover:shadow-lg"
+                  className="group overflow-hidden transition-all hover:shadow-lg dark:bg-cardark"
                 >
                   <CardContent className="p-6">
                     <div className="mb-4 flex h-20 items-center dark:bg-white justify-center rounded-lg bg-muted/50">
@@ -190,7 +190,7 @@ export default function ClientsPage() {
 
             <div className="grid gap-8 lg:grid-cols-3">
               {partners.map((partner, index) => (
-                <Card key={index}>
+                <Card key={index} className={"dark:bg-cardark"}>
                   <CardContent className="p-6">
                     <div className="mb-4 flex h-20 items-center dark:bg-white justify-center rounded-lg bg-muted/50">
                       <img

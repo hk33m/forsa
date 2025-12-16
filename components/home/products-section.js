@@ -54,7 +54,7 @@ export function ProductsSection() {
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {products.map((product) => (
-            <Card key={product.id} className="group overflow-hidden transition-all hover:shadow-xl">
+            <Card key={product.id} className="group overflow-hidden dark:bg-cardark transition-all hover:shadow-xl">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
                   src={product.image || "/placeholder.svg"}

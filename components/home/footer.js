@@ -25,7 +25,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg border">
+              <div className="flex h-10 w-10 items-center bg-white justify-center rounded-lg border">
                 <span className="text-lg font-bold ">
                   <img src="/512-01.png"></img>
                 </span>

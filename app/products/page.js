@@ -152,7 +152,7 @@ useEffect(() => {
               className="w-full"
               dir="rtl"
             >
-              <TabsList className="mb-8 grid w-full grid-cols-2 lg:grid-cols-4">
+              <TabsList className="mb-8 h-12 dark:bg-cardark grid w-full grid-cols-2 lg:grid-cols-4">
                 {products.map((product) => (
                   <TabsTrigger
                     key={product.id}
@@ -173,7 +173,7 @@ useEffect(() => {
                   <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
                     {/* Product Image */}
                     <div className="relative">
-                      <div className="aspect-[4/3] overflow-hidden rounded-2xl">
+                      <div className="aspect-[4/3] overflow-hidden  rounded-2xl">
                         <img
                           src={product.image || "/placeholder.svg"}
                           alt={product.title}
@@ -253,7 +253,7 @@ useEffect(() => {
               {products.map((product) => (
                 <Card
                   key={product.id}
-                  className="group cursor-pointer overflow-hidden transition-all hover:shadow-xl"
+                  className="group cursor-pointer overflow-hidden dark:bg-cardark transition-all hover:shadow-xl"
                   onClick={() => {
                     setActiveTab(product.id);
                     window.scrollTo({ top: 400, behavior: "smooth" });

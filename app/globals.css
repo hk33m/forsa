@@ -4,6 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-cardark:#472420;
   --color-taka: var(--taka);
   --color-takar: var(--takar);
   --color-takarr: var(--takarr);

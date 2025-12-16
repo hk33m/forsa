@@ -18,7 +18,7 @@ export function PartnersSection() {
           <p className="mx-auto max-w-xl text-muted-foreground">نفخر بشراكاتنا مع كبرى المزارع والشركات في المملكة</p>
         </div>
 
-        <div className="grid grid-cols-2 items-center gap-8 md:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 items-center  gap-8 md:grid-cols-3 lg:grid-cols-6">
           {partners.map((partner, index) => (
             <div
               key={index}
