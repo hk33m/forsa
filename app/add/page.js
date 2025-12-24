@@ -9,27 +9,13 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Navbar from "@/components/home/navbar"
+import { toast } from "sonner"
 
-// ======= Toast محلي بسيط =======
-function Toast({ message, type, onClose }) {
-  const colors = {
-    success: "bg-green-500",
-    error: "bg-red-500",
-  }
-  return (
-    <div className={`fixed top-4 right-4 p-4 rounded shadow-lg text-white ${colors[type]}`}>
-      <div className="flex justify-between items-center">
-        <span>{message}</span>
-        <button onClick={onClose} className="ml-4 font-bold">X</button>
-      </div>
-    </div>
-  )
-}
 
 export default function AddProductPage() {
   const [images, setImages] = useState([])
   const [loading, setLoading] = useState(false)
-  const [toast, setToast] = useState(null)
+ 
 
   // اختيار الصور
   const handleImages = (files) => {
@@ -58,16 +44,14 @@ export default function AddProductPage() {
         "https://cornflowerblue-albatross-308247.hostingersite.com/api/add_product.php",
         formData
       )
-
-      setToast({ message: "تم رفع المنتج والصور بنجاح ✅", type: "success" })
+     toast.success("  تم رفع المنتج بنجاح");
       e.target.reset()
       setImages([])
     } catch (error) {
       console.error(error)
-      setToast({ message: "فشل رفع المنتج ❌", type: "error" })
+      toast.error("فشل رفع المنتج ❌")
     } finally {
       setLoading(false)
-      setTimeout(() => setToast(null), 3000)
     }
   }
 
@@ -75,7 +59,6 @@ export default function AddProductPage() {
     <div>
      <Navbar title={"إضافة منتج "} color={"bg-blue-900"} path={"/"}  />
     <div className="max-w-6xl mx-auto p-6">
-      {toast && <Toast {...toast} onClose={() => setToast(null)} />}
       <Card className="shadow-xl">
         <CardHeader>
           <CardTitle className="text-2xl">إضافة منتج جديد</CardTitle>
