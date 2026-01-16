@@ -125,6 +125,9 @@
   --sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
+html{
+  scroll-behavior: smooth;
+}
  @font-face {
     font-family: 'Expo';
     src: url(/fonts/ExpoArabic-Book.ttf);
