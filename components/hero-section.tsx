@@ -34,7 +34,7 @@ export function HeroSection() {
 
             <ScrollReveal delay={200}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
-                فرصة
+                فريق فرصة
                 <span className="block text-primary mt-2 bg-gradient-to-l from-primary to-chart-2 bg-clip-text text-transparent">
                   من جوالك!
                 </span>
