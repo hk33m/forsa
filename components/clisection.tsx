@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Users, Store, Star, TrendingUp } from "lucide-react";
-
+import { ScrollReveal } from "@/components/scroll-reveal"
 const stats = [
   {
     icon: Store,
@@ -83,13 +83,15 @@ export  function ClientsSection() {
 
             <div className="flex flex-wrap gap-4 justify-center">
               {["عميل 1", "عميل 2", "عميل 3", "عميل 4", "عميل 5"].map(
-                (client) => (
+                (client,index) => (
+                  < ScrollReveal key={client} direction="left" delay={200 + index * 50}>
                   <div
-                    key={client}
+                    
                     className="px-8 py-4 bg-stone-50 rounded-2xl border border-stone-200 text-slate-700 font-medium"
                   >
                     {client}
                   </div>
+                  </ScrollReveal>
                 )
               )}
             </div>
