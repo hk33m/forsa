@@ -1,6 +1,7 @@
 import "./globals.css";
  import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
+import Webpushr from "@/components/Webpushr";
 
 
 export const metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
+          <Webpushr></Webpushr>
           {children}
          
          
